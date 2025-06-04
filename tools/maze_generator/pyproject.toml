@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "stara-maze-generator"
+version = "0.2.2"
+description = "Creating mazes using prims' algorithm for the stara project"
+authors = ["Valerius Mattfeld <v.mattfeld@stud.uni-goettingen.de>"]
+readme = "README.md"
+package-mode = true
+
+[tool.poetry.scripts]
+generate-maze = "stara_maze_generator.cli:main"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+numpy = "^2.2.1"
+loguru = "^0.7.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-cov = "^4.1.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "--cov=stara_maze_generator --cov-report=term-missing --cov-report=html"
+
+[tool.coverage.run]
+omit = ["stara_maze_generator/cli.py"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,6 @@
+Cython==3.0.11
+loguru==0.7.3
+maturin==1.8.1
+numpy==2.2.1
+setuptools==75.7.0
+stara-maze-generator @ https://github.com/valerius21/Stara-Maze-Generator/archive/master.zip#sha256=6f3558cc8195cafb3901cd3321b0b3842352d907a76c743faab4b959f84c0282

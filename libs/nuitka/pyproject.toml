@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "stara-astar-nuitka"
+version = "0.1.0"
+description = ""
+authors = ["Valerius Mattfeld <mail@valerius.me>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+stara-maze-generator = { git = "https://github.com/valerius21/Stara-Maze-Generator.git" }
+nuitka = "^2.5.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
