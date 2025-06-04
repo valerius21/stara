@@ -131,11 +131,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you use this work in your research, please cite:
 
 ```bibtex
-@misc{stara2025,
-  title={Python Performance Optimizations: Leveraging Native Implementations for A* Pathfinding},
-  author={Valerius Mattfeld},
-  year={2025},
-  url={https://github.com/valerius21/stara}
+@software{stara2025,
+    title={Python Performance Optimizations: Leveraging Native Implementations for A* Pathfinding (Respository)},
+    author={Mattfeld, Valerius Albert Gongjus},
+    year={2025},
+    url={https://github.com/valerius21/stara},
+    version={0.1.0},
+    date-released={2025-06-04},
+    note={This repository contains the code for the paper "Python Performance Optimizations: Leveraging Native Implementations for A* Pathfinding"}
 }
 ```
 
