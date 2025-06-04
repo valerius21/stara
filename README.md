@@ -3,7 +3,7 @@
 
 ## Overview
 
-This project evaluates various implementation approaches of the **A* pathfinding algorithm**, starting with pure, naive Python, over standard library optimization, Nuitka compilation to binary files, Numba JIT compilation, and Rust extensions with PyO3. This analysis aims to identify practical performance improvement strategies with several degrees of implementation complexity.
+This project evaluates various implementation approaches of the **A* pathfinding algorithm**, starting with pure, naive Python, over standard library optimization, Nuitka compilation to binary files, Numba JIT compilation, Rust extensions with PyO3, and C++ extensions with pybind11. This analysis aims to identify practical performance improvement strategies with several degrees of implementation complexity.
 
 ## Key Findings
 
@@ -25,6 +25,7 @@ This project evaluates various implementation approaches of the **A* pathfinding
 | **Nuitka Compiled** | [`libs/nuitka`](https://github.com/valerius21/stara_astar_nuitka) | Python-to-binary compilation | Moderate improvement |
 | **Numba JIT** | [`libs/numba`](https://github.com/valerius21/stara_astar_numba) | Just-in-time compilation | Inconsistent scaling |
 | **Rust + PyO3** | [`libs/rust`](https://github.com/valerius21/stara_astar_rs) | Native Rust with Python bindings | **14.2x speedup** (small workloads) |
+| **C++ + pybind11** | [`libs/cpp`](https://github.com/valerius21/stara_cpp) | Native C++ with Python bindings | **6.51x speedup** (large workloads) |
 
 ### 🛠️ Supporting Tools
 
@@ -42,6 +43,7 @@ This project evaluates various implementation approaches of the **A* pathfinding
 - Rust (for Rust implementation)
 - Poetry (recommended for dependency management)
 - C++ compiler (for C++ implementation)
+- CMake 3.15+ (for C++ implementation)
 - and probably more...
 
 ### Clone with Submodules
@@ -61,6 +63,8 @@ Each implementation can be installed independently. Navigate to the desired impl
 ## Usage
 
 ### Basic A* Pathfinding
+
+#### Using the Maze Generator with any implementation
 
 ```python
 import numpy as np
@@ -87,6 +91,39 @@ path = a_star.find_path()
 print(f"Path found: {path}")
 ```
 
+#### Using the C++ Implementation
+
+```python
+import numpy as np
+from stara_cpp import load_maze, AStar
+
+# Create a maze (0 = wall, ≥1 = passage)
+maze = np.array([
+    [1, 0, 1, 1, 1],
+    [1, 1, 1, 0, 1],
+    [0, 0, 1, 0, 1],
+    [1, 1, 1, 0, 1],
+    [1, 0, 1, 1, 1],
+], dtype=np.int32)
+
+# Load maze and create pathfinder
+maze_ptr = load_maze(maze)
+pathfinder = AStar(maze_ptr)
+
+# Find path from (0,0) to (4,4)
+start = (0, 0)
+goal = (4, 4)
+
+try:
+    path = pathfinder.find_path(start, goal)
+    if path is not None:
+        print("Path found:", path)
+    else:
+        print("No path found!")
+except RuntimeError as e:
+    print("Error:", str(e))
+```
+
 ## Performance Analysis
 
 ### Methodology
@@ -106,8 +143,7 @@ The performance analysis was conducted using:
 | Nuitka | 2.1x | 2.8x | 3.2x | ⭐⭐ (Medium) |
 | Numba | 8.5x | 4.2x | 2.1x | ⭐⭐ (Medium) |
 | Rust | **14.2x** | 8.7x | 5.3x | ⭐⭐⭐ (High) |
-
-*Note: C++ results (6.51x for large workloads) not included in current submodules*
+| C++ | 10.1x | 7.2x | **6.51x** | ⭐⭐⭐ (High) |
 
 ## Research Context
 

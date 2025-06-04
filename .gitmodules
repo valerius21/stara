@@ -19,3 +19,6 @@
 [submodule "tools/benchmarking"]
 	path = tools/benchmarking
 	url = https://github.com/valerius21/stara-batch-benchmark
+[submodule "libs/cpp"]
+	path = libs/cpp
+	url = https://github.com/valerius21/stara_cpp
