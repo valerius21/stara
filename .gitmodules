@@ -1,21 +1,21 @@
-[submodule "naive"]
+[submodule "libs/naive"]
 	path = libs/naive
 	url = git@github.com:valerius21/stara_astar_naive.git
-[submodule "stdlib"]
+[submodule "libs/stdlib"]
 	path = libs/stdlib
 	url = https://github.com/valerius21/stara_astar_stdlib
-[submodule "nuitka"]
+[submodule "libs/nuitka"]
 	path = libs/nuitka
 	url = https://github.com/valerius21/stara_astar_nuitka
-[submodule "rust"]
+[submodule "libs/rust"]
 	path = libs/rust
 	url = https://github.com/valerius21/stara_astar_rs
-[submodule "numba"]
+[submodule "libs/numba"]
 	path = libs/numba
 	url = https://github.com/valerius21/stara_astar_numba
-[submodule "maze_generator"]
+[submodule "tools/maze_generator"]
 	path = tools/maze_generator
 	url = https://github.com/valerius21/Stara-Maze-Generator
-[submodule "benchmark_tools"]
+[submodule "tools/benchmarking"]
 	path = tools/benchmarking
 	url = https://github.com/valerius21/stara-batch-benchmark
