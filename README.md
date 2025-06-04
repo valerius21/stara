@@ -5,6 +5,8 @@
 
 This project evaluates various implementation approaches of the **A* pathfinding algorithm**, starting with pure, naive Python, over standard library optimization, Nuitka compilation to binary files, Numba JIT compilation, Rust extensions with PyO3, and C++ extensions with pybind11. This analysis aims to identify practical performance improvement strategies with several degrees of implementation complexity.
 
+The full technical report can be found [here](https://github.com/valerius21/stara/blob/main/python_performance_optimizations_leveraging_native_implementations.pdf)
+
 ## Key Findings
 
 🔬 **Benchmarking and analysis reveal that different problem sizes have different optimal solutions:**
