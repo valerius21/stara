@@ -51,7 +51,7 @@ The full technical report can be found [here](https://github.com/valerius21/star
 ### Clone with Submodules
 
 ```bash
-git clone --recursive https://github.com/valerius21/stara.git
+git clone --recurse-submodules git@github.com:valerius21/stara.git
 cd stara
 
 # If you already cloned without --recursive:
